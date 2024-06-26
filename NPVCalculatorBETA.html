@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPV Calculator App</title>
+    <style>
+        body {
+            background-color: blue;
+            font-family: Calibri, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            margin-bottom: 50px;
+        }
+        button {
+            background-color: slategray;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkslategray;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to The NPV Calculator App BETA</h1>
+    <form id="npv-form">
+        <input type="text" id="initial_investment" placeholder="Initial Investment" required>
+        <input type="text" id="discount_rate" placeholder="Discount Rate" required>
+        <input type="text" id="cash_flows" placeholder="Cash Flows (comma separated)" required>
+        <button type="button" onclick="startNPVCalculator()">Start NPV Calculator</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        function calculateNPV(initialInvestment, discountRate, cashFlows) {
+            let npv = -initialInvestment;
+            for (let t = 0; t < cashFlows.length; t++) {
+                npv += cashFlows[t] / Math.pow(1 + discountRate, t + 1);
+            }
+            return npv;
+        }
+
+        function startNPVCalculator() {
+            const initialInvestment = parseFloat(document.getElementById('initial_investment').value);
+            const discountRate = parseFloat(document.getElementById('discount_rate').value);
+            const cashFlows = document.getElementById('cash_flows').value.split(',').map(Number);
+
+            if (isNaN(initialInvestment) || isNaN(discountRate) || cashFlows.some(isNaN)) {
+                document.getElementById('result').innerText = 'Please enter valid numeric values.';
+                return;
+            }
+
+            const npv = calculateNPV(initialInvestment, discountRate, cashFlows);
+            document.getElementById('result').innerText = `The Net Present Value (NPV) is: ${npv.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
