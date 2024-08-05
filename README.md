@@ -1,6 +1,6 @@
 README.md
 //this is a financial tool that may be utlized to assist in the protocol of small business and business enterprise
-fiancial health evaluation.In the context of projext management, calcualating one's "Net Present Value" is a sure directed positon for project sustainability and project optimization. "NPV Checker..." is the app for the every day business owner or start-up brand owner looking to secure an
+fiancial health evaluation. In the context of project management, calcualating one's "Net Present Value" is a sure directed positon for secured project sustainability and project optimization. "NPV Checker..." is the app for the every day business owner or start-up brand owner looking to secure an
 assurance of their business goals and venture capitial tangibles. 'Go harder..', 'Go further..' with "The NPV Checker..." application today!"//
 
 //Rates and fees apply.//
